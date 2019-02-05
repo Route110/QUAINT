@@ -1,0 +1,71 @@
+<div class="container">
+ <p class="notice"><%= notice %></p>
+ <div class="row justify-content-center my-lg-4">
+  <div  class="col-md-4">
+   <%= render 'layouts/sidebar', user: @user %>
+    <!-- 購入履歴リスト -->
+     <% unless current_user.nil? %>
+      <% if current_user.id == @user.id %>
+       <div class="history justify-content-left" style="padding-top: 40px">
+        <h4>購入履歴</h4>
+        <div class="list-group" style="max-width: 400px;">
+       </div>
+       <div class="col-sm-3 pl-0">
+       </div>
+      </div>
+     <% end %>
+   <% end %>
+  </div>
+
+    <div class="col-md-8" style="padding: 35px 80px;">
+     <!-- 実績ポイント・ランキング -->
+     <div class="point_ranking">
+      <table>
+       <tbody>
+        <tr>
+         <th id="ranking"><h3> Point</h3></th>
+         <th><h3> pt</h3></th>
+        </tr>
+
+        <tr>
+         <th id="ranking">
+         </th>
+         <th id="ranking"></th>
+          <th id="point"><h2><%= @rank %></h2></th>
+         <th><h3> th</h3></th>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     </br>
+     </br>
+     <!-- マイコミュニティ表示 -->
+     <h4>サークル</h4>
+     <div class="list-group" style="max-width: 400px;">
+      <ul class="list-group-item">
+        <div>
+         現在参加中のサークルはありません
+        </div>
+      </ul>
+    </div></br>
+
+     <div class="justify-content-end">
+      <%= link_to "more", users_my_community_path(@user.id), class: "btn btn-info" %>
+      </div>
+
+     <!-- 自ユーザーのみ表示 -->
+     <% unless current_user.nil? %>
+     <% if @user.id == current_user.id %>
+     <br>
+     <br>
+     <br>
+      <div class="float-right" >
+       <%= link_to '退会', users_cancel_show_path, class: "btn btn-light" %>
+      </div>
+     <% end %>
+     <% end %>
+　　</div>
+  </div>
+    </div>
+   </div>
+</div>
