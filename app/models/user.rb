@@ -7,7 +7,9 @@ class User < ApplicationRecord
   attachment :image
 
   validates :name, presence: true
-  validates :postalcode, presence: true, length: { is: 7 }, numericality: true
+  validates :age, presence: true
+  validates :sex, presence: true
+  validates :job, presence: true
   validates :address, presence: true
   validates :email, presence: true
   validates :introduction, length: { maximum: 200 }
