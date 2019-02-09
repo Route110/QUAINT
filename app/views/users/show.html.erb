@@ -2,56 +2,41 @@
  <p class="notice"><%= notice %></p>
    <%= render 'layouts/sidebar', user: @user %>
 </div>
-
-    <div class="col-md-8" style="padding: 35px 80px;">
-     <!-- 実績ポイント・ランキング -->
-     <div class="point_ranking">
-      <table>
-       <tbody>
+<br>
+<br>
+<!-- マイコミュニティ表示 -->
+<div class="container">
+  <div class="row justify-content-lg-center">
+    <div class="col-lg-10">
+     <h3>活動中の趣味</h3>
+     <% if !@records.empty?  %>
+      <% @records.each do |record| %>
+     <table>
+      <thead>
         <tr>
-         <th id="ranking"><h3> Point</h3></th>
-         <th><h3> pt</h3></th>
+          <th>イメージ</th>
+          <th>趣味</th>
+          <th>総活動時間</th>
+          <th></th>
         </tr>
-
+      </thead>
+      <tbody>
         <tr>
-         <th id="ranking">
-         </th>
-         <th id="ranking"></th>
-          <th id="point"><h2><%= @rank %></h2></th>
-         <th><h3> th</h3></th>
+          <td><%= attachment_image_tag record.hobby, :image, :fill, 200, 200, :size => "200x200" %></td>
+          <td><%= record.hobby.name %></td>
+          <td><%= record.time %></td>
+          <td><%= link_to "詳細", users_my_community_path(@user.id), class: "btn btn-primary" %></td>
         </tr>
-       </tbody>
-      </table>
-     </div>
-     </br>
-     </br>
-     <!-- マイコミュニティ表示 -->
-     <h4>サークル</h4>
-     <div class="list-group" style="max-width: 400px;">
+        <% end %>
+      <% end %>
+      <% else %>
       <ul class="list-group-item">
         <div>
-         現在参加中のサークルはありません
+         現在、活動中の趣味はありません。
         </div>
       </ul>
-    </div></br>
-
-     <div class="justify-content-end">
-      <%= link_to "more", users_my_community_path(@user.id), class: "btn btn-info" %>
-      </div>
-
-     <!-- 自ユーザーのみ表示 -->
-     <% unless current_user.nil? %>
-     <% if @user.id == current_user.id %>
-     <br>
-     <br>
-     <br>
-      <div class="float-right" >
-       <%= link_to '退会', users_cancel_show_path, class: "btn btn-light" %>
-      </div>
-     <% end %>
-     <% end %>
-　　</div>
-  </div>
+      </tbody>
+    </table>
     </div>
-   </div>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-  	@user = current_user
+  	@user = User.find(params[:id])
+    @records = Record.where(user_id: @user.id)
   end
 
   def edit
@@ -23,6 +24,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:postalcode, :address, :age, :email, :password, :image, :introduction)
+    params.require(:user).permit(:name, :address, :sex, :age, :job, :email, :password, :image, :introduction)
   end
 end

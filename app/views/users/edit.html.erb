@@ -8,16 +8,24 @@
       <%= form_for(@user) do |f| %>
         <%= render "layouts/error_messages", model: f.object %>
         <div class="form-group">
-          <%= f.label :postalcode %><br>
-          <%= f.text_field :postalcode %>
-        </div>
-        <div class="form-group">
-          <%= f.label :address %><br>
-          <%= f.text_area :address %>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
         </div>
         <div class="form-group">
           <%= f.label :age %><br>
-          <%= f.number_field :age %>
+          <%= f.select :age, [["20歳未満", "10"], ["20代", "20"],["30代", "30"], ["40代", "40"],["50代", "50"], ["60代", "60"],["70代", "70"], ["80代", "80"],["90歳以上", "90"]],:prompt => "選択" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sex %><br>
+          <%= f.select :sex, [["男性", "男性"], ["女性", "女性"]],:prompt => "選択" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :job %><br>
+          <%= f.select :job, [["公務員", "公務員"], ["経営者・役員", "経営者・役員"],["会社員", "会社員"], ["自営業", "自営業"],["自由業", "自由業"], ["専業主婦", "専業主婦"],["パート・アルバイト", "パート・アルバイト"], ["学生", "学生"],["その他", "その他"]],:prompt => "選択" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address %><br>
+          <%= f.select :address, [["北海道", "北海道"], ["東北", "東北"],["関東", "関東"], ["中部", "中部"],["近畿", "近畿"], ["中国", "中国"],["四国", "四国"], ["九州", "九州"]],:prompt => "選択" %>
         </div>
         <div class="form-group">
           <%= f.label :email %><br>
@@ -25,7 +33,7 @@
         </div>
         <div class="form-group">
         </div>
-        <div class="form-group">   
+        <div class="form-group">
           <%= attachment_image_tag @user, :image, :fill, 100, 100, format: "jpg", :size => "100x100", fallback: "no-user-image.jpg" %>
           <%= f.label :image %><br>
           <%= f.attachment_field :image, placeholder: "profile_image" %>
