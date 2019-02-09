@@ -9,13 +9,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex, autofocus: true, autocomplete: "sex" %>
+  </div>
+
+  <div class="field">
     <%= f.label :age %><br />
     <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
   </div>
 
   <div class="field">
-    <%= f.label :postalcode %><br />
-    <%= f.number_field :postalcode, autofocus: true, autocomplete: "postalcode" %>
+    <%= f.label :job %><br />
+    <%= f.text_field :job, autofocus: true, autocomplete: "job" %>
   </div>
 
   <div class="field">

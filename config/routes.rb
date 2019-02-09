@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
+
+  # categories
+    get 'hobby/categories', to: 'categories#show', as: :categories_show
 
   # community/
   namespace :community do
@@ -22,8 +24,7 @@ Rails.application.routes.draw do
 
   # communities
   get 'community/:id', to: 'communities#show', as: :communities_show
-  get 'community/:id/question/:question_id', to: 'communities#qa_show', as: :community_qa_show
-  delete 'search/:id', to: 'communities#delete', as: :delete_community
+  delete 'community/:id', to: 'communities#delete', as: :delete_community
   #resources :communities, only: [:new, :create]
   get 'community/request/new', to: 'communities#new', as: :new_community
   post 'communiy/requests', to: 'communities#create', as: :communities
