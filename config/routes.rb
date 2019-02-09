@@ -34,8 +34,7 @@ Rails.application.routes.draw do
 
   # users
   resources :users, only: [:show, :edit, :update]
-  get 'ranking', to: 'users#ranking_show', as: :users_ranking
-  get 'users/:id/my_community', to: 'users#my_community_index', as: :users_my_community
+  get 'users/:id/hobby/:id', to: 'users#hobby_index', as: :users_hobby
   get '/users/cancel/show', to: 'users#cancel_show', as: :users_cancel_show
   patch '/users/cancel/show', to: 'users#cancel_update'
 
