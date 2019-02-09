@@ -8775,3 +8775,21 @@ Processing by CategoriesController#show as HTML
 Completed 200 OK in 2251ms (Views: 2221.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/1" for 10.0.2.2 at 2019-02-09 12:22:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_sidebar.html.erb:2
+  Rendered layouts/_sidebar.html.erb (6.5ms)
+  [1m[36mRecord Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "records" WHERE "records"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:12
+  Rendered users/show.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 2749ms (Views: 2585.1ms | ActiveRecord: 21.5ms)
+
+
