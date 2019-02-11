@@ -6,6 +6,13 @@ class User < ApplicationRecord
 
   attachment :image
 
+  has_many :hobbies, through: :users_hobbies
+  has_many :users_hobbies
+  has_many :communities, through: :users_communities
+  has_many :users_communities
+  has_many :records
+  has_many :board_comments
+
   validates :name, presence: true
   validates :age, presence: true
   validates :sex, presence: true

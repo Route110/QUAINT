@@ -3,7 +3,7 @@
   <div class="row my-lg-3">
     <div class="col-md"></div>
     <div class="col-md-10">
-      <h1>User edit</h1>
+      <h1>プロフィール編集</h1>
       <!-- Form section -->
       <%= form_for(@user) do |f| %>
         <%= render "layouts/error_messages", model: f.object %>
@@ -43,7 +43,7 @@
           <%= f.text_field :introduction %>
         </div>
         <div class="form-action">
-          <%= f.submit "Update Profile", class: "btn btn-primary" %>
+          <%= f.submit "プロフィール更新", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

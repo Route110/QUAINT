@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category", null: false
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
     t.integer "hobby_id", null: false
     t.string "name", null: false
     t.text "introduction", null: false
-    t.integer "image_id", null: false
+    t.integer "image_id"
     t.boolean "is_active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,13 +49,16 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
 
   create_table "hobbies", force: :cascade do |t|
     t.string "name", null: false
+    t.string "image_id"
     t.integer "category_id", null: false
+    t.string "introduction", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "narrows", force: :cascade do |t|
     t.integer "hobby_id", null: false
+    t.integer "active_point", null: false
     t.integer "major_point", null: false
     t.integer "gain_point", null: false
     t.integer "appeal_point", null: false
@@ -63,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
     t.integer "concentration_point", null: false
     t.integer "cooperate_point", null: false
     t.integer "consider_point", null: false
+    t.integer "cost_point", null: false
     t.integer "artistic_point", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

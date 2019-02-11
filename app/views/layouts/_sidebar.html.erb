@@ -20,18 +20,24 @@
         <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-primary" %><br>
       </div>
     </div>
-    <!-- 他ユーザー -->
-   <% else %>
-    <div class="user_image">
-     <%= attachment_image_tag user, :image, :fill, 200, 200, :size => "200x200", fallback: "no-user-image.jpg" %>
-    </div>
-    <h5 class="user_name">Name &nbsp <u><%= user.name %></u></h5>
-    <br>
-    <h5>Introduction</h5>
-    <div class="card">
-      <div class="card-body">
-        <%= user.introduction %>
+  <!-- 他ユーザー -->
+  <% else %>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="user_image">
+          <%= attachment_image_tag user, :image, :fill, 250, 250, :size => "250x250", fallback: "no-user-image.jpg" %>
+        </div>
       </div>
-    </div><br>
+      <div class="col-lg-5">
+        <h5 class="user_name">ユーザー名 &nbsp <u><%= user.name %></u></h5><br>
+        <h5 class="user_information"><%= user.address %>／<%= user.age %>代／<%= user.sex %></h5><br>
+        <h5>自己紹介</h5>
+        <div class="card">
+          <div class="card-body">
+            <%= user.introduction %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
