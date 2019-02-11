@@ -4,6 +4,16 @@ Rails.application.routes.draw do
 
   # categories
     get 'hobby/categories', to: 'categories#show', as: :categories_show
+  # category
+    get 'hobby/category/:id', to: 'category#show', as: :category_show
+
+  # hobby
+    get 'hobby/:id', to: 'hobby#show', as: :hobby_show
+    #comments
+
+  #matching
+    get 'matching', to: 'matching#show', as: :matching_show
+    get 'matching/result', to: 'matching#result_show', as: :matching_result_show
 
   # community/
   namespace :community do
@@ -34,7 +44,8 @@ Rails.application.routes.draw do
 
   # users
   resources :users, only: [:show, :edit, :update]
-  get 'users/:id/hobby/:id', to: 'users#hobby_index', as: :users_hobby
+  get 'users/:id/hobby/:hobby_id', to: 'users#hobby_index', as: :users_hobby
+  post 'users/:id/hobby/:hobby_id', to: 'users#record_create', as: :users_record
   get '/users/cancel/show', to: 'users#cancel_show', as: :users_cancel_show
   patch '/users/cancel/show', to: 'users#cancel_update'
 

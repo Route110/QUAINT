@@ -4,39 +4,39 @@
 </div>
 <br>
 <br>
-<!-- マイコミュニティ表示 -->
+<!-- 活動中の趣味一覧 -->
 <div class="container">
   <div class="row justify-content-lg-center">
     <div class="col-lg-10">
-     <h3>活動中の趣味</h3>
-     <% if !@records.empty?  %>
-      <% @records.each do |record| %>
-     <table>
-      <thead>
-        <tr>
-          <th>イメージ</th>
-          <th>趣味</th>
-          <th>総活動時間</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= attachment_image_tag record.hobby, :image, :fill, 200, 200, :size => "200x200" %></td>
-          <td><%= record.hobby.name %></td>
-          <td><%= record.time %></td>
-          <td><%= link_to "詳細", users_my_community_path(@user.id), class: "btn btn-primary" %></td>
-        </tr>
+      <h3>活動中の趣味</h3>
+    <% if !@hobbies.empty?  %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>イメージ</th>
+            <th>趣味</th>
+            <th>総活動時間</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @hobbies.each do |hobby| %>
+        <tbody>
+          <tr>
+            <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
+            <td><%= hobby.hobby.name %></td>
+            <td>時間</td>
+            <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.id), class: "btn btn-primary" %></td>
+          </tr>
+          <% end %>
+        <% else %>
+        <ul class="list-group-item">
+          <div>
+           現在、活動中の趣味はありません。
+          </div>
+        </ul>
         <% end %>
-      <% end %>
-      <% else %>
-      <ul class="list-group-item">
-        <div>
-         現在、活動中の趣味はありません。
-        </div>
-      </ul>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
