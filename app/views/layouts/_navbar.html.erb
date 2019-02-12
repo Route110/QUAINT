@@ -1,19 +1,61 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">メニュー</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">メニュー</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">メニュー</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">メニュー</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bd-navbar shadow fixed-top py-3">
+    <a class="navbar-brand mb-0 h1 ml-4" href="<%= root_path %>">QUAINT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- ログイン時 -->
+        <% if user_signed_in? %>
+          <li>
+            <a class="nav-link" href="<%= matching_show_path %>">
+              趣味マッチング
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= categories_show_path %>">
+              カテゴリー別趣味
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= new_user_session_path %>">
+              ランキング
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= user_path(current_user.id) %>">
+              マイページ
+            </a>
+          </li>
+          <li>
+            <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+              ログアウト
+            </a>
+          </li>
+          <li>
+            <a class="nav-link disabled" href="#">
+              <%= current_user.name %>
+            </a>
+          </li>
+          <!--  未ログイン -->
+        <% else %>
+            <a class="nav-link" href="<%= matching_show_path %>">
+              趣味マッチング
+            </a>
+            <a class="nav-link" href="<%= categories_show_path %>">
+              カテゴリー別趣味
+            </a>
+            <a class="nav-link" href="<%= new_user_session_path %>">
+              ランキング
+            </a>
+            <a class="nav-link" href="<%= new_user_session_path %>">
+              ログイン
+            </a>
+            <a class="nav-link" href="<%= new_user_registration_path %>">
+              新規会員登録
+            </a>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
