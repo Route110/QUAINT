@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
   	@user = User.find(params[:id])
     @hobbies = UsersHobby.where(user_id: @user.id)
@@ -15,9 +17,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def delete
   end
 
   def hobby_index
