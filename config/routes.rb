@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  # admin
+  get '/admin/hobby/new', to: 'admin#hobby_new', as: :hobby_new
+  post '/admin/hobby/create', to: 'admin#hobby_create', as: :hobby_create
+
+  # admins
+  get '/admin', to: 'admins#index', as: :admin_index
+
   # categories
     get 'hobby/categories', to: 'categories#show', as: :categories_show
   # category
@@ -9,6 +16,7 @@ Rails.application.routes.draw do
 
   # hobby
     get 'hobby/:id', to: 'hobby#show', as: :hobby_show
+    post 'hobby/:id', to: 'hobby#add', as: :hobby_add
     #comments
 
   #matching
@@ -44,8 +52,10 @@ Rails.application.routes.draw do
 
   # users
   resources :users, only: [:show, :edit, :update]
-  get 'users/:id/hobby/:hobby_id', to: 'users#hobby_index', as: :users_hobby
-  post 'users/:id/hobby/:hobby_id', to: 'users#record_create', as: :users_record
+   #hobbies
+   get 'users/:id/hobby/:hobby_id', to: 'users#hobby_index', as: :users_hobby
+   delete 'users/:id/hobby/:hobby_id', to: 'users#hobby_delete', as: :users_hobby_delete
+   post 'users/:id/hobby/:hobby_id', to: 'users#record_create', as: :users_record
   get '/users/cancel/show', to: 'users#cancel_show', as: :users_cancel_show
   patch '/users/cancel/show', to: 'users#cancel_update'
 

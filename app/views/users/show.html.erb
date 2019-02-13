@@ -1,42 +1,53 @@
-<div class="container">
- <p class="notice"><%= notice %></p>
-   <%= render 'layouts/sidebar', user: @user %>
-</div>
-<br>
-<br>
-<!-- 活動中の趣味一覧 -->
-<div class="container">
-  <div class="row justify-content-lg-center">
-    <div class="col-lg-10">
-      <h3>活動中の趣味</h3>
-    <% if !@hobbies.empty?  %>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>イメージ</th>
-            <th>趣味</th>
-            <th>総活動時間</th>
-            <th></th>
-          </tr>
-        </thead>
-        <% @hobbies.each do |hobby| %>
-        <tbody>
-          <tr>
-            <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
-            <td><%= hobby.hobby.name %></td>
-            <td>時間</td>
-            <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.id), class: "btn btn-primary" %></td>
-          </tr>
-          <% end %>
-        <% else %>
-        <ul class="list-group-item">
-          <div>
-           現在、活動中の趣味はありません。
-          </div>
-        </ul>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
+<main>
+  <div class="container">
+   <p class="notice"><%= notice %></p>
+     <%= render 'layouts/sidebar', user: @user %>
   </div>
-</div>
+  <br>
+  <br>
+  <!-- 活動中の趣味一覧 -->
+  <div class="container">
+    <div class="row justify-content-lg-center">
+      <div class="col-lg-10">
+        <h3>活動中の趣味</h3>
+      <% if !@hobbies.empty?  %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>イメージ</th>
+              <th>趣味</th>
+              <th>総活動時間</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @hobbies.each do |hobby| %>
+          <tbody>
+            <tr>
+              <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
+              <td><%= hobby.hobby.name %></td>
+              <td>時間</td>
+              <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.id), class: "btn btn-primary" %></td>
+              <% if current_user.id == hobby.user_id %>
+              <td><%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          <% else %>
+          <ul class="list-group-item">
+            <div>
+             現在、活動中の趣味はありません。
+            </div>
+          </ul>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div>
+</main>

@@ -6,6 +6,17 @@ class UsersController < ApplicationController
     @hobbies = UsersHobby.where(user_id: @user.id)
   end
 
+  def hobby_delete
+    uh = UsersHobby.find(params[:hobby_id])
+    if uh.destroy
+      flash[:notice] = "趣味を削除しました"
+      redirect_to user_path
+    else
+      flash[:notice] = "趣味の削除に失敗しました"
+      redirect_to user_path
+    end
+  end
+
   def edit
   	@user = User.find(params[:id])
   end
@@ -21,7 +32,7 @@ class UsersController < ApplicationController
 
   def hobby_index
     @user = User.find(params[:id])
-    @hobby = Hobby.find(params[:hobby_id])
+    @hobby = UsersHobby.find(params[:hobby_id])
     @record = Record.new
   end
 
