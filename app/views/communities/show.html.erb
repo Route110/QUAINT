@@ -1,0 +1,37 @@
+<main>
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <% end %>
+<div class="container">
+      <div class="row justify-content-center">
+      	<div class="col-lg-3">
+      		<div class="hobby_image">
+          		<%= attachment_image_tag @hobby, :image, :fill, 250, 250, :size => "250x250", fallback: "no-category-image.jpg" %>
+          	</div>
+        </div>
+        <div class="col-lg-4">
+        	<h5 class="community_name">チャレンジ名 &nbsp <u><%= @community.name %></u></h5><br>
+          	<h5>紹介文</h5>
+          	<div class="card">
+            <div class="card-body">
+              	<%= @community.introduction %>
+            </div>
+          	</div>
+        </div>
+        <div class="col-lg-2">
+        	<%= link_to "チャレンジに追加する", community_add_path(@community), method: :post, class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+      	<div class="col-lg-4">
+            <!-- 掲示板一覧 -->
+        <h4>チャレンジ掲示板</h4>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</main>

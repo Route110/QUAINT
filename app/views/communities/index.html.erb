@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+    	<div class="col-lg-4">
+    	</div>
+       	<div class="col-lg-4">
+      		<h3>チャレンジ一覧</h3>
+      	</div>
+	    <div class= "col-lg-3">
+      		<%= link_to "新規チャレンジ追加", community_new_path, class: "btn btn-primary" %>
+      	</div>
+    </div>
+<br>
+<br>
+	<div class="row justify-content-center">
+		<table class='table'>
+			<thead>
+		        <tr>
+		        	<th>難易度</th>
+		          	<th>チャレンジ名</th>
+		          	<th>詳細</th>
+		          	<th></th>
+		        </tr>
+		    </thead>
+		   	<% @communities.each do |community| %>
+		    <tbody>
+		        <tr>
+		        	<td><%= community.level %></td>
+		          	<td><%= community.name %></td>
+		          	<td><%= link_to "詳細", community_show_path(community), class: "btn btn-primary" %></td>
+		          	<td><% if current_user.id == community.user_id %>
+		          		<%= link_to "削除", community_delete_path(community_id: community.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %>
+		          	<% end %></td>
+		        </tr>
+		    </tbody>
+		    <% end %>
+		</table>
+  	</div>
+</div>

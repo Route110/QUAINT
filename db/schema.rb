@@ -29,17 +29,16 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
 
   create_table "communities", force: :cascade do |t|
     t.integer "hobby_id", null: false
+    t.integer "user_id", null: false
     t.string "name", null: false
+    t.string "level", null: false
     t.text "introduction", null: false
-    t.integer "image_id"
-    t.boolean "is_active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "first_steps", force: :cascade do |t|
-    t.integer "community_id", null: false
-    t.integer "user_id", null: false
+    t.integer "hobby_id", null: false
     t.text "introduction", null: false
     t.string "item"
     t.integer "cost"

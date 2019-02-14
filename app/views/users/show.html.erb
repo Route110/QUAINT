@@ -16,7 +16,6 @@
             <tr>
               <th>イメージ</th>
               <th>趣味</th>
-              <th>総活動時間</th>
               <th></th>
               <th></th>
             </tr>
@@ -26,11 +25,10 @@
             <tr>
               <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
               <td><%= hobby.hobby.name %></td>
-              <td>時間</td>
-              <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.id), class: "btn btn-primary" %></td>
-              <% if current_user.id == hobby.user_id %>
-              <td><%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %></td>
-              <% end %>
+              <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.hobby.id), class: "btn btn-primary" %></td>
+              <td><% if current_user.id == hobby.user_id %>
+                <%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %>
+              <% end %></td>
             </tr>
             <% end %>
           <% else %>
@@ -44,10 +42,55 @@
         </table>
       </div>
     </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
   </div>
+    <br>
+    <br>
+    <!-- 活動中のチャレンジ一覧 -->
+  <div class="container">
+    <div class="row justify-content-lg-center">
+      <div class="col-lg-10">
+        <h3>参加中のチャレンジ</h3>
+      <% if !@communities.empty?  %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>趣味名</th>
+              <th>チャレンジ名</th>
+              <th>難易度</th>
+              <th>紹介文</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @communities.each do |community| %>
+          <tbody>
+            <tr>
+              <td><%= community.community.hobby.name %></td>
+              <td><%= community.community.name %></td>
+              <td><%= community.community.level %></td>
+              <td><%= community.community.introduction %></td>
+              <td><%= link_to "詳細", community_show_path(id: community.community.hobby.id, community_id: community.community.id), class: "btn btn-primary" %></td>
+              <% if current_user.id == community.user_id %>
+              <td><%= link_to "削除", users_community_delete_path(users_community_id: community.id, hobby_id: community.community.hobby.id, community_id: community.community.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          <% else %>
+          <ul class="list-group-item">
+            <div>
+             現在、参加中のチャレンジはありません。
+            </div>
+          </ul>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
 </main>

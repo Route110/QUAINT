@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row justify-content-center">
+      	<h3>カテゴリー別</h3>
+    </div>
+<br>
+<br>
+	<div class="row justify-content-center">
+		<table class='table'>
+			<thead>
+		        <tr>
+		          	<th>イメージ</th>
+		          	<th>カテゴリー</th>
+		          	<th>詳細</th>
+		        </tr>
+		    </thead>
+		   	<% @categories.each do |category| %>
+		    <tbody>
+		        <tr>
+		          	<td><%= attachment_image_tag category, :image, :fill, 200, 200, :size => "50x50", fallback: "no-category-image.jpg" %></td>
+		          	<td><%= category.category %></td>
+		          	<td><%= link_to "詳細", category_show_path(category.id), class: "btn btn-primary" %></td>
+		        </tr>
+		    </tbody>
+		    <% end %>
+		</table>
+  	</div>
+</div>

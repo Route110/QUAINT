@@ -1,0 +1,27 @@
+<div class="container">
+  <%= flash[:notice] %>
+  <div class="row justify-content-md-center mb-lg-5">
+    <div class="col-md-10">
+    <h2>新規カテゴリー登録</h2><br>
+    <%= form_for @category, url: category_create_path(params[:id]) do |f| %>
+    	<div class="form-group">
+          <%= f.label :カテゴリー名 %><br>
+          <%= f.text_field :category %>
+        </div>
+        <div class="form-group">
+          <%= attachment_image_tag @hobby, :image, :fill, 100, 100, format: "jpg", :size => "100x100", fallback: "no-category-image.jpg" %>
+          <%= f.label :イメージ画像 %><br>
+          <%= f.attachment_field :image, placeholder: "hobby_image" %>
+        </div>
+    	<div class="form-action">
+    		<%= f.submit "登録", class: "btn btn-primary" %>
+    	</div>
+    <% end %>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
