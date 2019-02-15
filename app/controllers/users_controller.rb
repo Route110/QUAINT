@@ -49,6 +49,8 @@ class UsersController < ApplicationController
     @hobby = UsersHobby.find(params[:hobby_id])
     @total = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).pluck(:time)
     @record = Record.new
+    @records = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC').group(:date).sum(:time)
+    @rec = Record.where(user_id: @user.id).where(hobby_id: @hobby.id)
   end
 
   def record_create

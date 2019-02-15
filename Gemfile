@@ -72,4 +72,6 @@ gem 'rails-i18n', '~> 5.1'
 gem 'rails_admin'
 gem 'cancancan', '~> 2.0'
 gem 'devise-i18n'
+gem "chartkick"
+gem 'chartable'
 gem 'pry-byebug'
