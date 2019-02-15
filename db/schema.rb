@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_095152) do
+ActiveRecord::Schema.define(version: 2019_02_14_111649) do
 
   create_table "board_comments", force: :cascade do |t|
     t.integer "community_id", null: false
@@ -102,10 +102,9 @@ ActiveRecord::Schema.define(version: 2019_02_07_095152) do
     t.string "address", null: false
     t.string "image_id"
     t.string "string"
-    t.string "is_active", default: "t", null: false
-    t.string "boolean", default: "t", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

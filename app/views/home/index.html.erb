@@ -1,5 +1,18 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<!--管理者ログイン画面-->
+<% if current_user.try(:admin?) %>
+<div class="container">
+  <div class="row justify-content-center">
+    <h1 class="display-5">管理者ページ</h1>
+  </div>
+  <br>
+  <br>
+  <div class="row justify-content-center">
+    <%= link_to "管理画面", "/admin", class: "btn btn-primary" %>
+  </div>
+<% else %>
+<!--home-->
 <div class="container">
   <div class="row justify-content-center">
       <br>
@@ -15,7 +28,7 @@
   <br>
   <br>
   <div class="row justify-content-center">
-      <h3 class="display-6">-サークル活動ができる</h3>
+      <h3 class="display-6">-情報を共有できる</h3>
   </div>
   <br>
   <br>
@@ -29,6 +42,7 @@
       <%= link_to "趣味診断を行う", matching_show_path, class: "btn btn-primary" %>
   </div>
 </div>
+<% end %>
 <br>
 <br>
 <br>
