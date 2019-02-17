@@ -11,9 +11,10 @@
           		<%= attachment_image_tag @hobby, :image, :fill, 250, 250, :size => "250x250", fallback: "no-category-image.jpg" %>
           	</div>
         	</div>
-        	<div class="col-lg-4">
+        	<div class="col-lg-6">
         		<h5 class="category_name">カテゴリー &nbsp <u><%= @hobby.category.category %></u></h5><br>
         		<h5 class="hobby_name">趣味名 &nbsp <u><%= @hobby.name %></u></h5><br>
+            <h5 class="people">参加者 &nbsp <u><%= @people %>人</u></h5><br>
           	<h5>紹介文</h5>
           	<div class="card">
             		<div class="card-body">
@@ -21,34 +22,41 @@
             		</div>
           	</div>
         	</div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <%= link_to "趣味に追加する", hobby_add_path(@hobby), method: :post, class: "btn btn-primary" %>
-          </div>
-          <div class="col-lg-2">
+            <br>
+            <br>
             <%= link_to "チャレンジ一覧", community_index_path, class: "btn btn-primary" %>
           </div>
       </div>
       <br>
       <br>
-      <div class="row justify-content-center">
-      	<div class="col-lg-5">
-          <h3>始めるにあたり</h3>
-        </div>
-        <div class="col-lg-5">
+      <div class="row">
+      	<div class="col-lg-6">
           <h3><%= @hobby.name %>の始め方</h3>
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-5">
-          <br>
-          <h5>必要アイテム: <%= @hobby.first_step.item %></h5>
-          <br>
-          <h5>費用目安: ¥ <%= @hobby.first_step.cost %></h5>
-      	</div>
-        <div class="col-lg-5">
-          <br>
-            <h5><%= @hobby.first_step.introduction %></h5>
+        <div class="col-lg-6">
+          <h3>始めるにあたり</h3>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+        <br>
+          <div class="card">
+            <div class="card-body">
+              <h4><%= @hobby.first_step.introduction %></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <br>
+          <h4>必要アイテム:</h4>
+          <h5><%= @hobby.first_step.item %></h5>
+          <br>
+          <h4>費用目安:</h4>
+          <h5>¥ <%= @hobby.first_step.cost %>〜</h5>
+      	</div>
+
       </div>
   </div>
 <br>

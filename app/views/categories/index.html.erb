@@ -16,7 +16,7 @@
 		   	<% @categories.each do |category| %>
 		    <tbody>
 		        <tr>
-		          	<td><%= attachment_image_tag category, :image, :fill, 200, 200, :size => "50x50", fallback: "no-category-image.jpg" %></td>
+		          	<td><%= attachment_image_tag category, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
 		          	<td><%= category.category %></td>
 		          	<td><%= link_to "詳細", category_show_path(category.id), class: "btn btn-primary" %></td>
 		        </tr>

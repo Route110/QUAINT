@@ -25,9 +25,12 @@ Rails.application.routes.draw do
   get 'community/:id', to: 'communities#show', as: :community_show
   post 'community/:id', to: 'communities#add', as: :community_add
 
-  #matching
+  #matchings
   get 'matching', to: 'matching#show', as: :matching_show
   get 'matching/result', to: 'matching#result_show', as: :matching_result_show
+
+  #rankings
+  get 'rankings', to: 'rankings#index', as: :ranking_index
 
   # home
   root to: 'home#index'

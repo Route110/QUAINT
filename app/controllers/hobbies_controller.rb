@@ -1,6 +1,7 @@
 class HobbiesController < ApplicationController
   def show
   	@hobby = Hobby.find(params[:id])
+    @people = UsersHobby.where(hobby_id: @hobby.id).count(:hobby_id)
   end
 
   def add

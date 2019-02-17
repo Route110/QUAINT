@@ -8,56 +8,76 @@
   <!-- 活動記録 -->
   <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <h3>趣味名： <%= @hobby.hobby.name %></h3>
-        </div>
-        <div class="col-lg-4">
-            <h3>総活動時間： <%= @total.sum %>時間</h3>
-        </div>
+      <div class="col-lg-5">
+        <h3>趣味名： <%= @hobby.hobby.name %></h3>
+      </div>
+      <div class="col-lg-5">
+        <h3>総活動時間： <%= @total.sum %>時間</h3>
+      </div>
     </div>
-      <br>
-      <br>
+    <br>
     <div class="row justify-content-center">
-      <%= area_chart @records, min: 0, max: 12, height: "500px", width: "900px", colors: ["orange", "#999"], messages: {empty: "データがありません"}, xtitle: "活動日", ytitle: "時間",label: "時間", discrete: true %>
+      <div class="col-lg-12">
+        <%= area_chart @records, min: 0, max: 12, height: "500px", width: "1100px", colors: ["orange", "#999"], messages: {empty: "データがありません"}, xtitle: "活動日", ytitle: "時間",label: "時間", discrete: true %>
+      </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-    <% @rec.each do |record| %>
-      <a><%= record.comment %></a>
-    <% end %>
-        </div>
+      <div class="col-lg-10">
+        <% @rec.each do |record| %>
+          <a><%= record.comment %></a>
+        <% end %>
+      </div>
     </div>
-      <br>
-      <br>
-      <br>
-      <% if current_user.id == @user.id %>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <h3>活動を記録する</h3>
-          <br>
-          <%= form_for(@record, url: users_record_path(user_id: @user, hobby_id: @hobby.hobby)) do |f| %>
-          <h5>活動日</h5>
-          <div class="field">
-           <%= f.text_field :date, :size=>"20x10", placeholder: "2019-01-01" %>
-          </div>
-          <br>
-          <h5>活動時間</h5>
-          <div class="field">
-           <%= f.text_field :time, :size=>"3x10", placeholder: "2" %>時間
-          </div>
-          <br>
-          <h5>特記事項</h5>
-          <div class="field">
-            <%= f.text_field :comment, :size=>"80x10", placeholder: "できるようになったことなど（任意）" %>
-          </div>
-          <br>
-          <div class="action">
-            <%= f.submit "投稿する", class: "btn btn-primary" %>
-          </div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="container">
+    <% if current_user.id == @user.id %>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h3>活動を記録する</h3>
+        <br>
+      </div>
+    </div>
+    <%= form_for(@record, url: users_record_path(user_id: @user, hobby_id: @hobby.hobby)) do |f| %>
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <h5>活動日</h5>
+        <div class="field">
+          <%= f.text_field :date, :size=>"20x10", placeholder: "2019-01-01" %>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <h5>活動時間</h5>
+        <div class="field">
+          <%= f.text_field :time, :size=>"3x10", placeholder: "2" %>時間
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h5>特記事項</h5>
+        <div class="field">
+          <%= f.text_field :comment, :size=>"80x10", placeholder: "できるようになったことなど（任意）" %>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="action">
+          <%= f.submit "投稿する", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </main>
