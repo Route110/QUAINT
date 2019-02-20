@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_111649) do
+ActiveRecord::Schema.define(version: 2019_02_18_155111) do
 
   create_table "board_comments", force: :cascade do |t|
     t.integer "community_id", null: false
@@ -55,19 +55,16 @@ ActiveRecord::Schema.define(version: 2019_02_14_111649) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "narrows", force: :cascade do |t|
+  create_table "hobbies_ratings", force: :cascade do |t|
     t.integer "hobby_id", null: false
-    t.integer "active_point", null: false
-    t.integer "major_point", null: false
-    t.integer "gain_point", null: false
-    t.integer "appeal_point", null: false
-    t.integer "health_point", null: false
-    t.integer "relax_point", null: false
-    t.integer "concentration_point", null: false
-    t.integer "cooperate_point", null: false
-    t.integer "consider_point", null: false
-    t.integer "cost_point", null: false
-    t.integer "artistic_point", null: false
+    t.integer "rating_id", null: false
+    t.integer "point", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -40,6 +40,7 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
+    @boards = BoardComment.all.where(community_id: @community.id).order(id: "ASC")
     @board = BoardComment.new
   end
 

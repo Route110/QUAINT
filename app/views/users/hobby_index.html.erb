@@ -5,11 +5,10 @@
   </div>
   <br>
   <br>
-  <!-- 活動記録 -->
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5">
-        <h3>趣味名： <%= @hobby.hobby.name %></h3>
+        <h3>趣味名： <%= @hobby.name %></h3>
       </div>
       <div class="col-lg-5">
         <h3>総活動時間： <%= @total.sum %>時間</h3>
@@ -40,7 +39,7 @@
         <br>
       </div>
     </div>
-    <%= form_for(@record, url: users_record_path(user_id: @user, hobby_id: @hobby.hobby)) do |f| %>
+    <%= form_for(@record, url: users_record_path(user_id: @user, hobby_id: @hobby)) do |f| %>
     <div class="row justify-content-center">
       <div class="col-lg-5">
         <h5>活動日</h5>

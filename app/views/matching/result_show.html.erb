@@ -1,1 +1,11 @@
-result show
+<h4>結果</h4>
+<table class="table">
+    <% @actives.zip(@majors, @gains, @appeals, @healthes, @relaxes, @concentrates, @cooperates, @considers, @costs, @artistics).each do |active, major, gain, appeal, health, relax, concentrate, cooperate, consider, cost, artistic| %>
+    <tr>
+    <% if((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs)) < 14 %>
+      	<td><%= (((((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs)).fdiv(44))-(1))*-100).round(2) %>%<td>
+      		<%= active.hobby.name %>
+    <% end %>
+    </tr>
+    <% end %>
+</table>

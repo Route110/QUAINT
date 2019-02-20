@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def hobby_index
     @user = User.find(params[:id])
-    @hobby = UsersHobby.find(params[:hobby_id])
+    @hobby = Hobby.find(params[:hobby_id])
     @total = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).pluck(:time)
     @record = Record.new
     @records = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC').group(:date).sum(:time)
@@ -60,7 +60,8 @@ class UsersController < ApplicationController
     record.user_id = user
     record.hobby_id = hobby
     if record.save
-        redirect_to users_hobby_path(user)
+      flash[:notice] = "活動を記録しました"
+      redirect_to users_hobby_path(user)
     else
       flash[:notice] = "エラー：入力に誤りがあります"
       redirect_to users_hobby_path(user)

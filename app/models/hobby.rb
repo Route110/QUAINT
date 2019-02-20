@@ -7,9 +7,8 @@ class Hobby < ApplicationRecord
   has_many :records
   has_many :communities
   belongs_to :category
-  has_one :narrow
+  has_many :hobbies_ratings
+  has_many :ratings, through: :hobbies_ratings
   has_one :first_step
 
-  accepts_nested_attributes_for :narrow
-  accepts_nested_attributes_for :first_step
 end

@@ -1,22 +1,112 @@
 <div class="container">
     <div class="row justify-content-center">
-		<h3>あてはまる条件を選択してください（5=そう思う、1=そうは思わない）</h3>
-		<ul>
-			<li>Q1.    外に出ることが好きだ</li>
-			<li>Q2.    人とは違った趣味をしたい</li>
-			<li>Q3.    趣味を誰かに披露したい</li>
-			<li>Q4.    趣味を通じて健康になりたい</li>
-			<li>Q5.    集中力はある方だ</li>
-			<li>Q6.    リラックスしたい</li>
-			<li>Q7.    誰かと協働するのが好きだ</li>
-			<li>Q8.    考えることが好きだ</li>
-			<li>Q9.    趣味のためならお金は惜しまない</li>
-			<li>Q10.  芸術に興味がある</li>
-		</ul>
+    	<h3>あてはまる条件を選択してください（5=そう思う、1=そうは思わない）</h3><br>
+    </div>
+    <div class="row justify-content-center">
+		<%= form_tag({ :controller => 'matching', :action => 'result_show' }, { :method => :get}) do %>
+			<h4>Q1.  外に出ることが好きだ</h4>
+			<h6>
+			5<%= radio_button 'page', 'active', 5, {} %>
+			4<%= radio_button 'page', 'active', 4, {} %>
+			3<%= radio_button 'page', 'active', 3, {} %>
+			2<%= radio_button 'page', 'active', 2, {} %>
+			1<%= radio_button 'page', 'active', 1, {}  %>
+			</h6>
+
+			<p>Q2.  競技人口は多い方が良い</p>
+			<p>
+			5<%= radio_button 'page', 'major', 5, {} %>
+			4<%= radio_button 'page', 'major', 4, {} %>
+			3<%= radio_button 'page', 'major', 3, {} %>
+			2<%= radio_button 'page', 'major', 2, {} %>
+			1<%= radio_button 'page', 'major', 1, {}  %>
+			</p>
+
+
+			<p>Q3.  趣味を使って稼ぎたい</p>
+			<p>
+			5<%= radio_button 'page', 'gain', 5, {} %>
+			4<%= radio_button 'page', 'gain', 4, {} %>
+			3<%= radio_button 'page', 'gain', 3, {} %>
+			2<%= radio_button 'page', 'gain', 2, {} %>
+			1<%= radio_button 'page', 'gain', 1, {}  %>
+			</p>
+
+			<p>Q4.  人前に出ることが好きだ</p>
+			<p>
+			5<%= radio_button 'page', 'appeal', 5, {} %>
+			4<%= radio_button 'page', 'appeal', 4, {} %>
+			3<%= radio_button 'page', 'appeal', 3, {} %>
+			2<%= radio_button 'page', 'appeal', 2, {} %>
+			1<%= radio_button 'page', 'appeal', 1, {}  %>
+			</p>
+
+			<p>Q5.  健康になりたい</p>
+			<p>
+			5<%= radio_button 'page', 'health', 5, {} %>
+			4<%= radio_button 'page', 'health', 4, {} %>
+			3<%= radio_button 'page', 'health', 3, {} %>
+			2<%= radio_button 'page', 'health', 2, {} %>
+			1<%= radio_button 'page', 'health', 1, {}  %>
+			</p>
+
+
+			<p>Q6.  リラックスしたい</p>
+			<p>
+			5<%= radio_button 'page', 'relax', 5, {} %>
+			4<%= radio_button 'page', 'relax', 4, {} %>
+			3<%= radio_button 'page', 'relax', 3, {} %>
+			2<%= radio_button 'page', 'relax', 2, {} %>
+			1<%= radio_button 'page', 'relax', 1, {}  %>
+			</p>
+
+			<p>Q7.  集中することが得意だ</p>
+			<p>
+			5<%= radio_button 'page', 'concentrate', 5, {} %>
+			4<%= radio_button 'page', 'concentrate', 4, {} %>
+			3<%= radio_button 'page', 'concentrate', 3, {} %>
+			2<%= radio_button 'page', 'concentrate', 2, {} %>
+			1<%= radio_button 'page', 'concentrate', 1, {}  %>
+			</p>
+
+			<p>Q8.  誰かと一緒に成し遂げたい</p>
+			<p>
+			5<%= radio_button 'page', 'cooperate', 5, {} %>
+			4<%= radio_button 'page', 'cooperate', 4, {} %>
+			3<%= radio_button 'page', 'cooperate', 3, {} %>
+			2<%= radio_button 'page', 'cooperate', 2, {} %>
+			1<%= radio_button 'page', 'cooperate', 1, {}  %>
+			</p>
+
+
+			<p>Q9.  考えることが好きだ</p>
+			<p>
+			5<%= radio_button 'page', 'consider', 5, {} %>
+			4<%= radio_button 'page', 'consider', 4, {} %>
+			3<%= radio_button 'page', 'consider', 3, {} %>
+			2<%= radio_button 'page', 'consider', 2, {} %>
+			1<%= radio_button 'page', 'consider', 1, {}  %>
+			</p>
+
+			<p>Q10.  趣味にお金を遣いたい</p>
+			<p>
+			5<%= radio_button 'page', 'cost', 5, {} %>
+			4<%= radio_button 'page', 'cost', 4, {} %>
+			3<%= radio_button 'page', 'cost', 3, {} %>
+			2<%= radio_button 'page', 'cost', 2, {} %>
+			1<%= radio_button 'page', 'cost', 1, {}  %>
+			</p>
+
+			<p>Q11.  芸術に興味がある</p>
+			<p>
+			5<%= radio_button 'page', 'artistic', 5, {} %>
+			4<%= radio_button 'page', 'artistic', 4, {} %>
+			3<%= radio_button 'page', 'artistic', 3, {} %>
+			2<%= radio_button 'page', 'artistic', 2, {} %>
+			1<%= radio_button 'page', 'artistic', 1, {}  %>
+			</p>
+
+  			<%= submit_tag '　送信する　' %>
+		<% end %>
 	</div>
 </div>
-
-
-
-
-

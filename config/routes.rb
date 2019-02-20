@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   delete 'hobbies/:id/communities/delete', to: 'communities#delete', as: :community_delete
   get 'community/:id', to: 'communities#show', as: :community_show
   post 'community/:id', to: 'communities#add', as: :community_add
+   #board_comments
+   post 'community/:id/board_comments', to: 'board_comments#add', as: :board_comment_add
+   delete 'community/:id/board_comments', to: 'board_comments#delete', as: :board_comment_delete
 
   #matchings
   get 'matching', to: 'matching#show', as: :matching_show
