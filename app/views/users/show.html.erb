@@ -1,4 +1,4 @@
-<main>
+<body>
   <div class="container">
    <p class="notice"><%= notice %></p>
      <%= render 'layouts/sidebar', user: @user %>
@@ -9,13 +9,14 @@
   <div class="container">
     <div class="row justify-content-lg-center">
       <div class="col-lg-12">
-        <h3>活動中の趣味</h3>
+        <h3 class="joined-hobbies">活動中の趣味</h3>
       <% if !@hobbies.empty?  %>
         <table class="table">
           <thead>
             <tr>
               <th>イメージ</th>
               <th>趣味</th>
+              <th>紹介文</th>
               <th></th>
               <th></th>
             </tr>
@@ -24,8 +25,9 @@
           <tbody>
             <tr>
               <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
-              <td><%= hobby.hobby.name %></td>
-              <td><%= link_to "詳細", users_hobby_path(hobby_id: hobby.hobby.id), class: "btn btn-primary" %></td>
+              <td><%= link_to hobby_show_path(hobby.hobby.id) do %><%= hobby.hobby.name %><% end %></td>
+              <td><%= hobby.hobby.introduction %></td>
+              <td><%= link_to "活動詳細", users_hobby_path(hobby_id: hobby.hobby.id), class: "btn btn-primary" %></td>
               <td><% if current_user.id == hobby.user_id %>
                 <%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %>
               <% end %></td>
@@ -43,13 +45,13 @@
       </div>
     </div>
   </div>
-    <br>
-    <br>
+  <br>
+  <br>
   <!-- 参加中のチャレンジ一覧 -->
   <div class="container">
     <div class="row justify-content-lg-center">
       <div class="col-lg-12">
-        <h3>参加中のチャレンジ</h3>
+        <h3 class="joined-challenges">参加中のチャレンジ</h3>
       <% if !@communities.empty?  %>
         <table class="table">
           <thead>
@@ -59,17 +61,15 @@
               <th>難易度</th>
               <th>紹介文</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           <% @communities.each do |community| %>
           <tbody>
             <tr>
-              <td><%= community.community.hobby.name %></td>
-              <td><%= community.community.name %></td>
+              <td><%= link_to hobby_show_path(community.community.hobby.id) do %><%= community.community.hobby.name %><% end %></td>
+              <td><%= link_to community_show_path(community.community.id) do %><%= community.community.name %><% end %></td>
               <td><%= community.community.level %></td>
               <td><%= community.community.introduction %></td>
-              <td><%= link_to "詳細", community_show_path(id: community.community.hobby.id, community_id: community.community.id), class: "btn btn-primary" %></td>
               <% if current_user.id == community.user_id %>
               <td><%= link_to "削除", users_community_delete_path(users_community_id: community.id, hobby_id: community.community.hobby.id, community_id: community.community.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %></td>
               <% end %>
@@ -87,10 +87,5 @@
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
-</main>
+</body>

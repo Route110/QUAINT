@@ -1,11 +1,33 @@
-<h4>結果</h4>
-<table class="table">
-    <% @actives.zip(@majors, @gains, @appeals, @healthes, @relaxes, @concentrates, @cooperates, @considers, @costs, @artistics).each do |active, major, gain, appeal, health, relax, concentrate, cooperate, consider, cost, artistic| %>
-    <tr>
-    <% if((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs)) < 14 %>
-      	<td><%= (((((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs)).fdiv(44))-(1))*-100).round(2) %>%<td>
-      		<%= active.hobby.name %>
-    <% end %>
-    </tr>
-    <% end %>
-</table>
+<div class="container">
+    <div class="row justify-content-center">
+    	<div class="col-lg-12">
+    		<h3 class="black_band">結果</h3>
+    	</div>
+    </div>
+    <div class="pic">
+    <div class="row justify-content-center">
+		<% @actives.zip(@majors, @gains, @appeals, @healthes, @relaxes, @concentrates, @cooperates, @considers, @costs, @artistics).each do |active, major, gain, appeal, health, relax, concentrate, cooperate, consider, cost, artistic| %>
+		<% if((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs)) < 14 %>
+			<div class="col-lg-3">
+			<br>
+		 	<%= link_to hobby_show_path(active.hobby.id) do %>
+		 		<p class="matching_name">&nbsp<%= active.hobby.name %>&nbsp</p>
+		    	<img><%= attachment_image_tag active.hobby, :image, :fill, 200, 200, :size => "255x255", fallback: "no-category-image.jpg" %></img>
+		    <% end %>
+		    <br>
+		    <br>
+		<% if(((1)-(((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs))/44.to_f))*100).round(1) < 80 %>
+		    	<p class="matching_percent">&nbspマッチ率：<%= (((1)-(((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs))/44.to_f))*100).round(1) %>%&nbsp</p>
+		<% else %>
+				<p class="matching_80percent">&nbspマッチ率：<%= (((1)-(((((active.point)-(@active_point)).abs)+(((major.point)-(@major_point)).abs)+(((gain.point)-(@gain_point)).abs)+(((appeal.point)-(@appeal_point)).abs)+(((health.point)-(@health_point)).abs)+(((relax.point)-(@relax_point)).abs)+(((concentrate.point)-(@concentrate_point)).abs)+(((cooperate.point)-(@cooperate_point)).abs)+(((consider.point)-(@consider_point)).abs)+(((cost.point)-(@cost_point)).abs)+(((artistic.point)-(@artistic_point)).abs))/44.to_f))*100).round(1) %>%&nbsp</p>
+		<% end %>
+		    <br>
+			<br>
+			<br>
+			<br>
+			</div>
+		<% end %>
+		<% end %>
+	</div>
+	</div>
+</div>

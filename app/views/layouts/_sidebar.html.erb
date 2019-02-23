@@ -7,12 +7,16 @@
         </div>
       </div>
       <div class="col-lg-5">
-        <h5 class="user_name">ユーザー名 &nbsp <u><%= current_user.name %></u></h5><br>
-        <h5 class="user_information"><%= current_user.address %>／<%= current_user.age %>代／<%= current_user.sex %></h5><br>
-        <h5>自己紹介</h5>
         <div class="card">
           <div class="card-body">
-            <%= current_user.introduction %>
+            <h5 class="user_name">ユーザー名 &nbsp <u><%= current_user.name %></u></h5><br>
+            <h5 class="user_information"><%= current_user.address %>／<%= current_user.age %>代／<%= current_user.sex %></h5>
+          </div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="user_introduction"><%= current_user.introduction %></h5>
           </div>
         </div>
       </div>
@@ -29,9 +33,13 @@
         </div>
       </div>
       <div class="col-lg-5">
+        <div class="card">
+          <div class="card-body">
         <h5 class="user_name">ユーザー名 &nbsp <u><%= user.name %></u></h5><br>
-        <h5 class="user_information"><%= user.address %>／<%= user.age %>代／<%= user.sex %></h5><br>
-        <h5>自己紹介</h5>
+        <h5 class="user_information"><%= user.address %>／<%= user.age %>代／<%= user.sex %></h5>
+          </div>
+        </div>
+        <br>
         <div class="card">
           <div class="card-body">
             <%= user.introduction %>

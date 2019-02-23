@@ -6,23 +6,18 @@
       </div>
     </div>
     <div class="row">
-      <p class="col-lg-7 offset-lg-3">退会されると今までのユーザ情報、<br>
+      <p class="col-lg-8 offset-lg-4">退会されると今までのユーザ情報、<br>
       活動記録等は失われますがよろしいでしょうか？
       </p>
     </div>
     <div class="row">
-        <div class="col-lg-2 offset-lg-4">
+        <div class="col-lg-1 offset-lg-4">
         <%= link_to '退会する', users_cancel_show_path, method: :delete, class: 'btn btn-light' %>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-1 offset-lg-1">
 
         <%= link_to '退会しない', user_path(current_user.id), class: 'btn btn-light' %>
         </div>
     </div>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
   </div>
 </main>

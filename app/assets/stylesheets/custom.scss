@@ -1,24 +1,132 @@
-body {
-  padding-top: 90px;
-  font-family: 'Roboto', sans-serif;
-}
-.container {
-  max-width: 1000px;
-}
 .navbar {
-  font-family: 'Roboto', sans-serif;
-  background-color: #3700B3;
+  background-color: black;
 }
-.homepage {
-    background-color: #6200EE;
-    font-family: 'Noto Sans JP', sans-serif;
+* {
+  font-family: 'Osaka-Mono';
 }
-.navbar-brand {
-  font-size: 1.75rem;
+footer {
+  margin-top: 90px;
 }
-.nav-item {
-  font-size: 1.2rem;
+.joined-hobbies{
+	color: white;
+	background-color: purple;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
 }
-a {
-  color: #000000;
+.joined-challenges{
+	color: white;
+	background-color: orange;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+}
+.black_band{
+  color: white;
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+body {
+  	padding-top: 90px;
+}
+html {
+	display: block;
+  position: relative;
+  z-index: 1;
+}
+html:after {
+	content: "";
+	background: url(study.jpg);
+  background-position: center;
+  background-size:cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+.table{
+  position: relative;
+  color: black;
+  z-index: 1;
+}
+.table:after {
+  content: "";
+  background: url(study.jpg);
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+.picture {
+  position: relative;
+  }
+.picture p {
+  position: absolute;
+  background-color: #555555;
+  color: white;
+  font-weight: 900;
+  font-size: 1.6em;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+.question{
+   margin-top: 5px;
+   display:inline-block;
+  }
+.radio_button{
+   margin-top: 5px;
+   transform: scale(1.2);
+   display:inline-block;
+  }
+.matching_name {
+  position: absolute;
+  background-color: #555555;
+  color: white;
+  font-weight: 900;
+  font-size: 1.4em;
+  }
+.matching_percent {
+  position: absolute;
+  background-color: #FF5192;
+  color: white;
+  font-weight: 900;
+  font-size: 1.4em;
+  margin-left: 25px;
+  }
+.matching_80percent {
+  position: absolute;
+  background-color: #FF1A6F;
+  color: white;
+  font-weight: 900;
+  font-size: 1.4em;
+  margin-left: 25px;
+  }
+.pic{
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+.pic:after {
+  content: "";
+  background: url(sports2.jpg);
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }

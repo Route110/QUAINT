@@ -1,39 +1,41 @@
+<body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <!--管理者ログイン画面-->
 <% if current_user.try(:admin?) %>
 <div class="container">
   <div class="row justify-content-center">
-    <h1 class="display-5">管理者ページ</h1>
+    <h1>管理者ページ</h1>
   </div>
   <br>
   <br>
   <div class="row justify-content-center">
     <%= link_to "管理画面", "/admin", class: "btn btn-primary" %>
   </div>
+</div>
 <% else %>
 <!--home-->
 <div class="container">
   <div class="row justify-content-center">
       <br>
-      <h1 class="display-5">あなたにぴったりの趣味が見つかる</h1>
+      <h1>あなたにぴったりの趣味が見つかる</h1>
       <br>
   </div>
   <br>
   <br>
   <br>
   <div class="row justify-content-center">
-      <h3 class="display-6">-新たな趣味に出会える</h3>
+      <h3>-新たな趣味に出会える</h3>
   </div>
   <br>
   <br>
   <div class="row justify-content-center">
-      <h3 class="display-6">-情報を共有できる</h3>
+      <h3>-情報を共有できる</h3>
   </div>
   <br>
   <br>
   <div class="row justify-content-center">
-      <h3 class="display-6">-活動を記録できる</h3>
+      <h3>-活動を記録できる</h3>
   </div>
   <br>
   <br>
@@ -43,24 +45,4 @@
   </div>
 </div>
 <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</body>

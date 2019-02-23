@@ -23,7 +23,10 @@
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <% @rec.each do |record| %>
-          <a><%= record.comment %></a>
+        <%if !record.comment.empty? %>
+          <a>習得日: <%= record.date %></a>
+          <a>内容: <%= record.comment %></a><br>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -74,9 +77,4 @@
     </div>
     <% end %>
   </div>
-<br>
-<br>
-<br>
-<br>
-<br>
 </main>
