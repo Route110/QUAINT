@@ -3,7 +3,7 @@ class MatchingController < ApplicationController
   end
 
   def result_show
-    begin params[:page] != nil?
+    begin
     @active_point = params[:page][:active].to_i
     @major_point = params[:page][:major].to_i
     @gain_point = params[:page][:gain].to_i

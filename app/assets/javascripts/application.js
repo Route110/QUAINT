@@ -17,3 +17,30 @@
 //= require bootstrap-sprockets
 //= require Chart.bundle
 //= require chartkick
+$(function(){
+  $('.matching').slideDown(2000);
+});
+$(function(){
+  $('.matching_percent,.matching_80percent').fadeIn(7000);
+});
+$(function(){
+  $('.ranking').fadeIn(3000);
+});
+$(function(){
+  $('.title').fadeIn(8000);
+});
+$(function(){
+  $('.p1').fadeIn(3000);
+});
+$(function(){
+  $('.p2,.p5').fadeIn(5000);
+});
+$(function(){
+  $('.p3').fadeIn(9000);
+});
+$(function(){
+  $('.p4').fadeIn(7000);
+});
+$(function(){
+  $('.p6').fadeIn(11000);
+});

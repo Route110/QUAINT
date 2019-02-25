@@ -106,7 +106,8 @@ html:after {
    transform: scale(1.2);
    display:inline-block;
   }
-.matching_name {
+.matching {
+  display: none;
   position: absolute;
   background-color: #555555;
   color: white;
@@ -114,6 +115,7 @@ html:after {
   font-size: 1.4em;
   }
 .matching_percent {
+  display: none;
   position: absolute;
   background-color: #FF5192;
   color: white;
@@ -122,6 +124,7 @@ html:after {
   margin-left: 25px;
   }
 .matching_80percent {
+  display: none;
   position: absolute;
   background-color: #FF1A6F;
   color: white;
@@ -165,6 +168,7 @@ html:after {
   position: relative;
   }
 .title {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -175,6 +179,7 @@ html:after {
   padding:0;
   }
 .p1 {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -188,6 +193,7 @@ html:after {
   padding:0;
   }
 .p2 {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -201,6 +207,7 @@ html:after {
   padding:0;
   }
 .p3 {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -214,6 +221,7 @@ html:after {
   padding:0;
   }
 .p4 {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -227,6 +235,7 @@ html:after {
   padding:0;
   }
 .p5 {
+  display: none;
   position: absolute;
   color: white;
   font-weight: bold;
@@ -240,6 +249,7 @@ html:after {
   padding:0;
   }
 .p6 {
+  display: none;
   position: absolute;
   top: 90%;
   left: 50%;
@@ -271,3 +281,8 @@ html:after {
   position: absolute;
   z-index: -1;
 }
+.ranking {
+  display: none;
+  position: absolute;
+  color: white;
+  }

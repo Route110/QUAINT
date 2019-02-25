@@ -11,7 +11,7 @@
 			<div class="col-lg-3">
 			<br>
 		 	<%= link_to hobby_show_path(active.hobby.id) do %>
-		 		<p class="matching_name">&nbsp<%= active.hobby.name %>&nbsp</p>
+		 		<p class="matching">&nbsp<%= active.hobby.name %>&nbsp</p>
 		    	<img><%= attachment_image_tag active.hobby, :image, :fill, 200, 200, :size => "255x255", fallback: "no-category-image.jpg" %></img>
 		    <% end %>
 		    <br>
