@@ -46,7 +46,8 @@ Rails.application.routes.draw do
    #communities
    delete 'users/:id/hobby/:hobby_id/community/:community_id', to: 'users#community_delete', as: :users_community_delete
    #records
-   post 'users/:id/hobby/:hobby_id', to: 'users#record_create', as: :users_record
+   post 'users/:id/hobby/:hobby_id/record', to: 'users#record_create', as: :users_record
+   delete 'users/:id/hobby/:hobby_id/record', to: 'users#record_delete', as: :users_record_delete
    #cancel
    get '/users/cancel/show', to: 'users#cancel_show', as: :users_cancel_show
    delete '/users/cancel/show', to: 'users#cancel_delete', as: :users_cancel_delete

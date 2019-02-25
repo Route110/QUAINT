@@ -3,6 +3,7 @@ class MatchingController < ApplicationController
   end
 
   def result_show
+    begin params[:page] != nil?
     @active_point = params[:page][:active].to_i
     @major_point = params[:page][:major].to_i
     @gain_point = params[:page][:gain].to_i
@@ -25,5 +26,9 @@ class MatchingController < ApplicationController
     @considers = HobbiesRating.where(rating_id: '9')
     @costs = HobbiesRating.where(rating_id: '10')
     @artistics = HobbiesRating.where(rating_id: '11')
+    rescue
+        flash[:notice] = "入力に誤りがあります"
+        redirect_to matching_show_path
+    end
   end
 end

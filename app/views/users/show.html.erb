@@ -27,9 +27,9 @@
               <td><%= attachment_image_tag hobby.hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
               <td><%= link_to hobby_show_path(hobby.hobby.id) do %><%= hobby.hobby.name %><% end %></td>
               <td><%= hobby.hobby.introduction %></td>
-              <td><%= link_to "活動詳細", users_hobby_path(hobby_id: hobby.hobby.id), class: "btn btn-primary" %></td>
+              <td><%= link_to "活動詳細", users_hobby_path(hobby_id: hobby.hobby.id), class: "btn btn-primary btn-xs" %></td>
               <td><% if current_user.id == hobby.user_id %>
-                <%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %>
+                <%= link_to "削除", users_hobby_delete_path(hobby_id: hobby.id),method: :delete, class: "btn btn-light btn-xs", "data-confirm" => "Are you sure?" %>
               <% end %></td>
             </tr>
             <% end %>
@@ -39,10 +39,11 @@
              現在、活動中の趣味はありません。
             </div>
           </ul>
-          <% end %>
           </tbody>
+          <% end %>
         </table>
       </div>
+              <%= paginate @hobbies %>
     </div>
   </div>
   <br>
@@ -71,7 +72,7 @@
               <td><%= community.community.level %></td>
               <td><%= community.community.introduction %></td>
               <% if current_user.id == community.user_id %>
-              <td><%= link_to "削除", users_community_delete_path(users_community_id: community.id, hobby_id: community.community.hobby.id, community_id: community.community.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %></td>
+              <td><%= link_to "削除", users_community_delete_path(users_community_id: community.id, hobby_id: community.community.hobby.id, community_id: community.community.id),method: :delete, class: "btn btn-light btn-xs", "data-confirm" => "Are you sure?" %></td>
               <% end %>
             </tr>
             <% end %>

@@ -21,11 +21,12 @@
 			          	<td><%= attachment_image_tag hobby, :image, :fill, 200, 200, :size => "100x100", fallback: "no-category-image.jpg" %></td>
 			          	<td><%= hobby.name %></td>
 			          	<td><%= hobby.introduction %></td>
-			          	<td><%= link_to "詳細", hobby_show_path(hobby.id), class: "btn btn-primary" %></td>
+			          	<td><%= link_to "詳細", hobby_show_path(hobby.id), class: "btn btn-primary btn-xs" %></td>
 			        </tr>
 			    </tbody>
 			    <% end %>
 			</table>
 		</div>
+		<%= paginate @hobbies %>
   	</div>
 </div>

@@ -1,57 +1,60 @@
-<main class="container">
-  <div class="row my-lg-3">
-    <div class="col-md"></div>
-    <div class="col-md-10">
-      <h1>プロフィール編集</h1>
-      <%= form_for(@user) do |f| %>
-        <%= render "layouts/error_messages", model: f.object %>
-        <div class="form-group">
-          <%= f.label :name %><br>
-          <%= f.text_field :name %>
+<div class="container">
+  <div class="edit">
+    <div class="row my-lg-3">
+      <div class="col-md"></div>
+      <div class="col-md-10">
+        <br>
+        <h1>プロフィール編集</h1>
+        <%= form_for(@user) do |f| %>
+          <%= render "layouts/error_messages", model: f.object %>
+          <div class="form-group">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <%= f.label :age %><br>
+            <%= f.select :age, [["20歳未満", "10"], ["20代", "20"],["30代", "30"], ["40代", "40"],["50代", "50"], ["60代", "60"],["70代", "70"], ["80代", "80"],["90歳以上", "90"]],:prompt => "選択" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :sex %><br>
+            <%= f.select :sex, [["男性", "男性"], ["女性", "女性"]],:prompt => "選択" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :job %><br>
+            <%= f.select :job, [["公務員", "公務員"], ["経営者・役員", "経営者・役員"],["会社員", "会社員"], ["自営業", "自営業"],["自由業", "自由業"], ["専業主婦", "専業主婦"],["パート・アルバイト", "パート・アルバイト"], ["学生", "学生"],["その他", "その他"]],:prompt => "選択" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :address %><br>
+            <%= f.select :address, [["北海道", "北海道"], ["東北", "東北"],["関東", "関東"], ["中部", "中部"],["近畿", "近畿"], ["中国", "中国"],["四国", "四国"], ["九州", "九州"]],:prompt => "選択" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+          </div>
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <%= attachment_image_tag @hobby, :image, :fill, 100, 100, format: "jpg", :size => "100x100", fallback: "no-category-image.jpg" %>
+            <%= f.label :image %><br>
+            <%= f.attachment_field :image, placeholder: "profile_image" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction %><br>
+            <%= f.text_field :introduction, :size => "50x10", placeholder: "始めたいことや目標を記入してください" %>
+          </div>
+          <div class="form-action">
+            <%= f.submit "プロフィール更新", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <br>
+        <div class="cancel">
+          <%= link_to "退会", users_cancel_show_path, class: "btn btn-danger" %>
         </div>
-        <div class="form-group">
-          <%= f.label :age %><br>
-          <%= f.select :age, [["20歳未満", "10"], ["20代", "20"],["30代", "30"], ["40代", "40"],["50代", "50"], ["60代", "60"],["70代", "70"], ["80代", "80"],["90歳以上", "90"]],:prompt => "選択" %>
+        <br>
+        <div class="back">
+          <%= link_to "戻る", user_path(@user), class: "btn btn-light" %>
         </div>
-        <div class="form-group">
-          <%= f.label :sex %><br>
-          <%= f.select :sex, [["男性", "男性"], ["女性", "女性"]],:prompt => "選択" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :job %><br>
-          <%= f.select :job, [["公務員", "公務員"], ["経営者・役員", "経営者・役員"],["会社員", "会社員"], ["自営業", "自営業"],["自由業", "自由業"], ["専業主婦", "専業主婦"],["パート・アルバイト", "パート・アルバイト"], ["学生", "学生"],["その他", "その他"]],:prompt => "選択" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :address %><br>
-          <%= f.select :address, [["北海道", "北海道"], ["東北", "東北"],["関東", "関東"], ["中部", "中部"],["近畿", "近畿"], ["中国", "中国"],["四国", "四国"], ["九州", "九州"]],:prompt => "選択" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email %><br>
-          <%= f.text_field :email %>
-        </div>
-        <div class="form-group">
-        </div>
-        <div class="form-group">
-          <%= attachment_image_tag @hobby, :image, :fill, 100, 100, format: "jpg", :size => "100x100", fallback: "no-category-image.jpg" %>
-          <%= f.label :image %><br>
-          <%= f.attachment_field :image, placeholder: "profile_image" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :introduction %><br>
-          <%= f.text_field :introduction, :size => "50x10", placeholder: "始めたいことや目標を記入してください" %>
-        </div>
-        <div class="form-action">
-          <%= f.submit "プロフィール更新", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-      <br>
-      <div class="cancel">
-        <%= link_to "退会", users_cancel_show_path, class: "btn btn-danger" %>
-      </div>
-      <br>
-      <div class="back">
-        <%= link_to "戻る", user_path(@user), class: "btn btn-light" %>
       </div>
     </div>
   </div>
-</main>
+</div>

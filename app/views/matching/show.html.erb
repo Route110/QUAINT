@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <% end %>
     <div class="row justify-content-center">
     	<div class="col-lg-12">
     	<h3 class="black_band">あてはまる条件を選択してください（5=そう思う、1=そうは思わない）</h3>

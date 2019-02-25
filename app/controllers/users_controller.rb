@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @hobbies = UsersHobby.where(user_id: @user.id)
+    @hobbies = UsersHobby.where(user_id: @user.id).page(params[:page]).per(5)
     @communities = UsersCommunity.where(user_id: @user.id)
   end
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @total = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).pluck(:time)
     @record = Record.new
     @records = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC').group(:date).sum(:time)
-    @rec = Record.where(user_id: @user.id).where(hobby_id: @hobby.id)
+    @rec = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC')
   end
 
   def record_create
@@ -66,6 +66,13 @@ class UsersController < ApplicationController
       flash[:notice] = "エラー：入力に誤りがあります"
       redirect_to users_hobby_path(user)
     end
+  end
+
+  def record_delete
+    record = Record.find(params[:record_id])
+    record.destroy
+    flash[:notice] = "記録を削除しました"
+    redirect_to users_hobby_path(params[:id])
   end
 
   def cancel_show

@@ -1,4 +1,5 @@
 class HobbiesController < ApplicationController
+before_action :authenticate_user!, :only => [:show, :index]
   def show
   	@hobby = Hobby.find(params[:id])
     @people = UsersHobby.where(hobby_id: @hobby.id).count(:hobby_id)

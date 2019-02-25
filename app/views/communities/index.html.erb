@@ -6,7 +6,7 @@
       		<h3>チャレンジ一覧</h3>
       	</div>
 	    <div class= "col-lg-3">
-      		<%= link_to "新規チャレンジ追加", community_new_path, class: "btn btn-primary" %>
+      		<%= link_to "新規チャレンジ追加", community_new_path, class: "btn btn-primary btn-xs" %>
       	</div>
     </div>
 <br>
@@ -30,13 +30,14 @@
 		          	<td><%= community.level %></td>
 		          	<td><%= community.introduction %></td>
 		          	<td><%= community.created_at.strftime('%Y/%m/%d') %></td>
-		          	<td><%= link_to "詳細", community_show_path(community), class: "btn btn-primary" %></td>
-		          	<td><% if current_user.id == community.user_id %>
-		          		<%= link_to "削除", community_delete_path(community_id: community.id),method: :delete, class: "btn btn-light", "data-confirm" => "Are you sure?" %>
+		          	<td><%= link_to "詳細", community_show_path(community), class: "btn btn-primary btn-xs" %></td>
+		          	<td><%if current_user.id == community.user_id or current_user.admin? %>
+		          		<%= link_to "削除", community_delete_path(community_id: community.id),method: :delete, class: "btn btn-light btn-xs", "data-confirm" => "Are you sure?" %>
 		          	<% end %></td>
 		        </tr>
 		    </tbody>
 		    <% end %>
 		</table>
+	<%= paginate @communities %>
   	</div>
 </div>

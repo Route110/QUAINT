@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
 
   def hobby_new
   	@hobby = Hobby.new
-  	@hobby.build_narrow
+    @hobby.build_hobbies_rating
     @hobby.build_first_step
   end
 

@@ -17,17 +17,32 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-lg-12">
-        <%= area_chart @records, min: 0, max: 12, height: "500px", width: "1100px", colors: ["orange", "#999"], messages: {empty: "データがありません"}, xtitle: "活動日", ytitle: "時間",label: "時間", discrete: true %>
+        <%= area_chart @records, min: 0, max: 12, height: "500px", width: "1100px", colors: ["orange", "#999"], messages: {empty: "データがありません"}, xtitle: "活動日", ytitle: "時間",label: "時間", discrete: true %><br>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-10">
+      <div class="col-lg-11">
+        <table class="table">
+         <thead>
+           <tr>
+            <th>活動日</th>
+            <th>活動時間</th>
+            <th>特記事項</th>
+          </tr>
+        </thead>
         <% @rec.each do |record| %>
-        <%if !record.comment.empty? %>
-          <a>習得日: <%= record.date %></a>
-          <a>内容: <%= record.comment %></a><br>
+        <tbody>
+          <tr>
+            <td><%= record.date %></td>
+            <td><%= record.time %>時間</td>
+            <td><%= record.comment %></td>
+          <% if current_user.id == @user.id or current_user.admin? %>
+            <td><%= link_to '削除', users_record_delete_path(user_id: @user, record_id: record.id), method: :delete, class: 'btn btn-primary btn-xs', "data-confirm" => "Are you sure?" %></td>
+          <% end %>
+          </tr>
+         </tbody>
         <% end %>
-        <% end %>
+        </table>
       </div>
     </div>
     <br>
@@ -70,7 +85,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="action">
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <%= f.submit "投稿する", class: "btn btn-primary btn-xs" %>
           <% end %>
         </div>
       </div>

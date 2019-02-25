@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <%= link_to "チャレンジに追加する", community_add_path(@community), method: :post, class: "btn btn-primary" %>
+        <%= link_to "チャレンジに追加する", community_add_path(@community), method: :post, class: "btn btn-primary btn-xs" %>
       </div>
     </div>
   </div>
@@ -38,13 +38,14 @@
             <td><%= board.comment %></td>
             <td><%= link_to user_path(board.user.id) do %><%= board.user.name %>さん<% end %></td>
             <td><%= board.created_at.strftime('%Y/%m/%d') %></td>
-            <td><% if current_user.id == board.user_id %>
+            <td><% if current_user.id == board.user.id or current_user.admin? %>
             <%= link_to '削除', board_comment_delete_path(@community.id, :board_comment_id => board.id), method: :delete, class: 'btn btn-primary', "data-confirm" => "Are you sure?" %></td>
           <% end %>
           </tr>
         <% end %>
         </table>
       </div>
+    <%= paginate @boards %>
     </div>
     <%= form_for @board, url: board_comment_add_path(@community.id) do |f| %>
     <div class="row justify-content-center">
@@ -59,7 +60,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="action">
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <%= f.submit "投稿する", class: "btn btn-primary btn-xs" %>
         <% end %>
       </div>
     </div>

@@ -22,10 +22,10 @@
           	</div>
         	</div>
           <div class="col-lg-3">
-            <%= link_to "趣味に追加する", hobby_add_path(@hobby), method: :post, class: "btn btn-primary" %>
+            <%= link_to "趣味に追加する", hobby_add_path(@hobby), method: :post, class: "btn btn-primary btn-xs" %>
             <br>
             <br>
-            <%= link_to "チャレンジ一覧", community_index_path, class: "btn btn-primary" %>
+            <%= link_to "チャレンジ一覧", community_index_path, class: "btn btn-primary btn-xs" %>
           </div>
       </div>
       <br>
@@ -40,8 +40,8 @@
       </div>
       <div class="row">
         <div class="col-lg-6">
-        <br>
-          <h4>&nbsp<%= @hobby.first_step.introduction %></h4>
+          <br>
+          <h4><%= @hobby.first_step.introduction %></h4>
         </div>
         <div class="col-lg-6">
           <br>

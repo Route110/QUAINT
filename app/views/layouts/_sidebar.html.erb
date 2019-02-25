@@ -1,5 +1,5 @@
 <div class="profile">
-  <% if current_user.id == user.id %>
+  <% if current_user.id == user.id or current_user.admin? %>
     <div class="row justify-content-center">
       <div class="col-lg-3">
         <div class="user_image">
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-primary" %><br>
+        <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-primary btn-xs" %><br>
       </div>
     </div>
   <!-- 他ユーザー -->

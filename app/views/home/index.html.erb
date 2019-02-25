@@ -8,41 +8,45 @@
     <h1>管理者ページ</h1>
   </div>
   <br>
-  <br>
   <div class="row justify-content-center">
     <%= link_to "管理画面", "/admin", class: "btn btn-primary" %>
   </div>
+  <br>
+  <br>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+  <div class="example">
+    <img src="assets/sports2.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2.jpg">
+    <h1 class="title">あなたにぴったりの趣味が見つかる</h1>
+    <p class="p1">新たな趣味に出会える</p>
+    <p class="p2">自分が見つかる</p>
+    <p class="p3">交流が図れる</p>
+    <p class="p4">情報を共有できる</p>
+    <p class="p5">日々の活動を記録できる</p>
+    <p class="p6"><%= link_to "趣味診断を行う", matching_show_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+</div>
+</div>
 </div>
 <% else %>
 <!--home-->
 <div class="container">
   <div class="row justify-content-center">
-      <br>
-      <h1>あなたにぴったりの趣味が見つかる</h1>
-      <br>
+    <div class="col-lg-12">
+  <div class="example">
+    <img src="assets/sports2.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_people_watching.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/bw_music.jpg"><img src="assets/sports2.jpg">
+    <h1 class="title">あなたにぴったりの趣味が見つかる</h1>
+    <p class="p1">新たな趣味に出会える</p>
+    <p class="p2">自分が見つかる</p>
+    <p class="p3">交流が図れる</p>
+    <p class="p4">情報を共有できる</p>
+    <p class="p5">日々の活動を記録できる</p>
+    <p class="p6"><%= link_to "趣味診断を行う", matching_show_path, class: "btn btn-primary btn-lg" %></p>
   </div>
-  <br>
-  <br>
-  <br>
-  <div class="row justify-content-center">
-      <h3>-新たな趣味に出会える</h3>
-  </div>
-  <br>
-  <br>
-  <div class="row justify-content-center">
-      <h3>-情報を共有できる</h3>
-  </div>
-  <br>
-  <br>
-  <div class="row justify-content-center">
-      <h3>-活動を記録できる</h3>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="row justify-content-center">
-      <%= link_to "趣味診断を行う", matching_show_path, class: "btn btn-primary" %>
-  </div>
+</div>
+</div>
 </div>
 <% end %>
 </body>

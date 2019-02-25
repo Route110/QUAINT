@@ -1,7 +1,8 @@
 class CommunitiesController < ApplicationController
+before_action :authenticate_user!, :only => [:show, :index]
   def index
     @hobby = Hobby.find(params[:id])
-    @communities = Community.where(hobby_id: @hobby.id)
+    @communities = Community.where(hobby_id: @hobby.id).page(params[:page]).per(10)
   end
 
   def new
@@ -40,7 +41,7 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
-    @boards = BoardComment.all.where(community_id: @community.id).order(id: "ASC")
+    @boards = BoardComment.where(community_id: @community.id).order(id: "ASC").page(params[:page]).per(20)
     @board = BoardComment.new
   end
 
