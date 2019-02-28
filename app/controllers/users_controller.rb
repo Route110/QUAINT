@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @total = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).pluck(:time)
     @record = Record.new
     @records = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC').group(:date).sum(:time)
-    @rec = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC')
+    @rec = Record.where(user_id: @user.id).where(hobby_id: @hobby.id).order('date ASC').page(params[:page]).per(5)
   end
 
   def record_create
