@@ -3,4 +3,8 @@
 自分の傾向にあった趣味をマッチングさせる機能。
 
 # Dependency
+<<<<<<< HEAD
 ruby '2.5.3'
+=======
+ruby '2.5.3'
+>>>>>>> origin/master
