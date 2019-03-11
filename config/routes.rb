@@ -3,12 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   # admins
-  get '/admins', to: 'admins#index', as: :admin_index
-  get '/admins/hobbies/new', to: 'admins#hobby_new', as: :hobby_new
-  post '/admins/hobbies/create', to: 'admins#hobby_create', as: :hobby_create
-  get '/admins/categories/new', to: 'admins#category_new', as: :category_new
-  post '/admins/categories/create', to: 'admins#category_create', as: :category_create
-
+  
   # categories
   get 'categories', to: 'categories#index', as: :category_index
   get 'categories/:id', to: 'categories#show', as: :category_show
