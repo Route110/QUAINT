@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  # admins
-  
   # categories
   get 'categories', to: 'categories#index', as: :category_index
   get 'categories/:id', to: 'categories#show', as: :category_show
